@@ -77,6 +77,7 @@ class Credentials:
         """
         delete_account method deletes a saved Credential from accounts
         """
+        
         Credentials.accounts.remove(self)
 
 
@@ -97,5 +98,5 @@ class Credentials:
         for account in cls.accounts:
             if account.accountusername == number:
                 return account
-          
- 
+
+    
