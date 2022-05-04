@@ -9,8 +9,9 @@ This is a Python application that  will help manage passwords and even generate 
 | Behaviour | Input | Output |
 | :---------------- | :---------------: | :------------------: |
 | Display prompt for creating an account | Enter username and password| Displays username and password|
-| Display prompt for login in | Enter username and password|Display codes for navigation |
-| Display prompt for creating a credential | Enter username and password| Displays saved credentials|
+| Display prompt for log in | Enter username and password| Display codes for navigation |
+| Display prompt for adding account credential | Enter username and password| Displays saved credentials|
+
 
 ## Installation and SetUp
 1. Open Terminal {Ctrl+Alt+T}
@@ -22,7 +23,7 @@ This is a Python application that  will help manage passwords and even generate 
 4. code . or atom . based on the text editor you have.
 
 5. Run the application
-  $ run.py
+  $| Display prompt for adding account credential | Enter username and password| Displays saved credentials| run.py
 Testing the Application
 To run the tests for the class file:
   $ python3.6 user_credentials_test.py
