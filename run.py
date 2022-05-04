@@ -51,7 +51,7 @@ def main():
                 loginPassword=input()
                 if find_user(loginPassword):
                     print("\n")
-                    print("Select to Continue\n 1. Create account \n 2. View Accounts \n 3. Delete Account")
+                    print("Select to Continue\n 1. Add account credentials \n 2. View Accounts \n 3. Delete Account")
                     print("-"*60)
                     choose= input()
                     print("\n")
@@ -69,7 +69,7 @@ def main():
                             accountpassword="".join(choice(characters)for x in range(randint(6,16)))
                             print(f"Password: {accountpassword}")
                         elif decision=="2":
-                            print("Enter your Password")
+                            print("Enter your Password(upto 4 characters)")
                             accountpassword=input()
                         else:
                             print("please put in a valid choice")
