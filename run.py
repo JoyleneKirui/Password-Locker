@@ -1,4 +1,4 @@
-from re import U
+
 import string
 from random import *
 from user import User
@@ -7,19 +7,17 @@ from user import Credentials
 def create_user(username,userpassword):
     newuser= User(username,userpassword)
     return newuser
-def save_user(user):
-    user.save_user()
+def save_user(User):
+    User.save_user()
 def find_user(number):
     return User.find_by_number(number)
-def display_users():
-    return User.display_users()
 def create_account(accountusername,accountname,accountpassword):
     newaccount= Credentials(accountusername,accountname,accountpassword)
-    return newaccount   
-def save_account(user):
-    user.save_account()
-def delete_account(user):
-    user.delete_account(user)
+    return newaccount 
+def save_account(User):
+    User.save_account()
+def delete_account(Credentials):
+    Credentials.delete_account()
 def find_account(number):
     return Credentials.find_by_number(number)
 def display_accounts():
@@ -79,20 +77,20 @@ def logIn() :
                 print("\n")
                 print("Select to create password\n 1. Generate automatic password \n 2. Create new password")
                 decision=input()
-                if decision=="1":
+                if decision =="1":
                     characters=string.ascii_letters + string.digits
                     accountpassword="".join(choice(characters)for x in range(randint(6,16)))
                     print(f"Password: {accountpassword}")
-                    
-                    logIn()
-                elif decision=="2":
+                    save_account(create_account(accountusername,accountname,accountpassword))
+                   
+                elif decision =="2":
                     print("Enter your Password(upto 4 characters)")
                     accountpassword=input()
-                    logIn()
+                    save_account(create_account(accountusername,accountname,accountpassword))
                 else:
                     print("please put in a valid choice")  
                     logIn()
-                save_account(create_account(accountusername,accountname,accountpassword))
+                
                 print("\n")
                 print(f"Username:{accountusername} \nAccount Name: {accountname} \nPassword: {accountpassword}") 
             elif choose == "2":
@@ -106,12 +104,15 @@ def logIn() :
                     logIn()    
                 
             elif choose == "3":
+                print("Confirm username")
+                accountusername = input()
                 print("Enter the account name of the Credentials you want to delete")
                 accountname = input()
                 print("Enter the password of the account Credentials you want to delete")
                 accountpassword = input()
+                
                 if find_account(accountpassword):    
-                    delete_account(user)
+                    Credentials.delete_account
                     print('\n')
                     print(f"You  have deleted your account credentials successfully!!")
                     print('\n')
@@ -119,7 +120,7 @@ def logIn() :
                     print(f"The {accountname} credentials You want to delete does not Exist in this locker!!")
                     logIn()
             elif choose == "4":
-                print("You are logged off, thank you for using Password Locker!")
+                print("You are logged off, thank you for using Password Locker!\n")
                 main()
             else :
                 print("invalid option! Try Again \n")
@@ -129,6 +130,7 @@ def logIn() :
         else:
             print("Incorrect INFO please try again! Thankyou")
             print("\n")
+            main()
             
             
 if __name__ == '__main__':
