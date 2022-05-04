@@ -12,7 +12,7 @@ def setUp(self):
         '''
         Set up method to run before each test cases.
         '''
-        self.new_user = user("Joy","1234") 
+        self.new_user = User("Joy","1234") 
         
 def test_init(self):
         '''
@@ -29,14 +29,14 @@ def test_save_user(self):
          the user list
         '''
         self.new_user.save_user() 
-        self.assertEqual(len(user.user_list),1)  
+        self.assertEqual(len(User.user_list),1)  
 
 
 def tearDown(self):
             '''
             tearDown method that does clean up after each test case has run.
             '''
-            user.user_list = []
+            User.user_list = []
 
 def test_save_multiple_users(self):
         '''
@@ -44,10 +44,20 @@ def test_save_multiple_users(self):
         objects to our contact_list
         '''
         self.new_user.save_user()
-        test_user = user("user","0712345678") # new contact
+        test_user = User("user","0712345678") # new contact
         test_user.save_user()
-        self.assertEqual(len(user.user_list),2)
+        self.assertEqual(len(User.user_list),2)
 
+def test_delete_account(self):
+            '''
+            test_delete_contact to test if we can remove a contact from our contact list
+            '''
+            self.new_account.save_account()
+            test_credentials = Credentials("Test","user") # new contact
+            test_credentials.save_credentials()
+
+            self.new_credentials.delete_account()# Deleting a contact object
+            self.assertEqual(len(Credentials.accounts),1)
 
 if __name__ == '__main__':
     unittest.main()   
