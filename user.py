@@ -1,5 +1,4 @@
 
-
 class User:
     """
     Class that generates new instances of users
@@ -10,7 +9,6 @@ class User:
         __init__ method that helps us define properties for our objects self.
         
         """
-        
         self.username=username
         self.password=password
 
@@ -48,6 +46,7 @@ class User:
         for user in cls.userslist:
             if user.username == number:
                 return True
+            else:
                 return False
 
 
