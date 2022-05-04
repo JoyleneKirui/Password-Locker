@@ -15,7 +15,7 @@ def display_users():
     return User.display_users()
 def create_account(accountusername,accountname,accountpassword):
     newaccount= Credentials(accountusername,accountname,accountpassword)
-    return newaccount
+    return newaccount   
 def save_account(user):
     user.save_account()
 def delete_account(user):
@@ -36,7 +36,7 @@ def main():
                     break
                 else :
                     print("kindly input a valid option")
-                    print(" 1.Sign Up\n 2.Login")
+                    print(" 1.Sign Up \n 2.Login")
             if option == "1":
                 signUp()
             else :
@@ -83,39 +83,48 @@ def logIn() :
                     characters=string.ascii_letters + string.digits
                     accountpassword="".join(choice(characters)for x in range(randint(6,16)))
                     print(f"Password: {accountpassword}")
+                    
+                    logIn()
                 elif decision=="2":
                     print("Enter your Password(upto 4 characters)")
                     accountpassword=input()
+                    logIn()
                 else:
-                    print("please put in a valid choice")
-                    
+                    print("please put in a valid choice")  
+                    logIn()
                 save_account(create_account(accountusername,accountname,accountpassword))
                 print("\n")
-                print(f"Username:{accountusername} \nAccount Name: {accountname} \nPassword: {accountpassword}")
+                print(f"Username:{accountusername} \nAccount Name: {accountname} \nPassword: {accountpassword}") 
             elif choose == "2":
-                if find_account(accountusername):
+                if find_account(loginUsername):
                     print("Here is a list of your created accounts: ")
                     print("-"*25)
                     for user in display_accounts():
                         print(f"Account: {user.accountname} \nPassword: {user.accountpassword} \n\n")
                 else:
-                    print("Invalid creds!")
-                    return
+                    print("Invalid creds | You have no account credentials yet!") 
+                    logIn()    
                 
             elif choose == "3":
                 print("Enter the account name of the Credentials you want to delete")
                 accountname = input()
-                if find_account(accountname):    
-                    accountname.delete_account()
+                print("Enter the password of the account Credentials you want to delete")
+                accountpassword = input()
+                if find_account(accountpassword):    
+                    delete_account(user)
                     print('\n')
-                    print(f"You  have deleted {accountname} credentials successfully!!")
+                    print(f"You  have deleted your account credentials successfully!!")
                     print('\n')
                 else:
                     print(f"The {accountname} credentials You want to delete does not Exist in this locker!!")
-                    return
+                    logIn()
             elif choose == "4":
                 print("You are logged off, thank you for using Password Locker!")
                 main()
+            else :
+                print("invalid option! Try Again \n")
+                
+                logIn()
 
         else:
             print("Incorrect INFO please try again! Thankyou")

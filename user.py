@@ -62,6 +62,7 @@ class Credentials:
         __init__ method that helps us define properties for our objectsself.
        
         """
+        
         self.accountusername= accountusername
         self.accountname = accountname
         self.accountpassword = accountpassword
