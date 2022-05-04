@@ -8,11 +8,11 @@ This is a Python application that  will help manage passwords and even generate 
 
 | Behaviour | Input | Output |
 | :---------------- | :---------------: | :------------------: |
-| Display prompt for creating an account | Enter username and password| Displays username and password|
-| Display prompt for log in | Enter username and password| Display codes for navigation |
-| Display prompt for adding account credential | Enter username and password| Displays saved credentials|
-
-
+| Display prompt for creating an account | Enter username and password | Displays username and password |
+| Display prompt for log in | Enter username and password | Display codes for navigation |
+| Display prompt for adding account credential | Enter username and password | Displays saved credentials|
+| Display prompt for viewing account credentials | Select option to view | Displays all account credentials |
+| Display prompt for deleting account credentials | Enter account credentials | Displays successfull deleted credential |
 ## Installation and SetUp
 1. Open Terminal {Ctrl+Alt+T}
 
