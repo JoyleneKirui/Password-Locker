@@ -4,14 +4,14 @@ class User:
     Class that generates new instances of users
     """
     userslist=[]
-    def __init__(self,username,password):
+    def __init__(self,username,userpassword):
         """
         __init__ method that helps us define properties for our objects self.
         
         """
         
         self.username=username
-        self.password=password
+        self.userpassword=userpassword
 
     def save_user(self):
         """
@@ -39,7 +39,7 @@ class User:
         
         """
         for user in cls.userslist:
-            if user.password == number:
+            if user.userpassword == number:
                 return user
 
     @classmethod
@@ -62,7 +62,6 @@ class Credentials:
         __init__ method that helps us define properties for our objectsself.
        
         """
-        
         self.accountusername= accountusername
         self.accountname = accountname
         self.accountpassword = accountpassword
@@ -79,7 +78,6 @@ class Credentials:
         """
         
         Credentials.accounts.remove(self)
-
 
     @classmethod
     def display_accounts(cls):
@@ -100,3 +98,7 @@ class Credentials:
                 return account
 
     
+    # @classmethod
+    # def copy_password(cls,number):
+    #     contact_found = Contact.find_by_number(number)
+    #     pyperclip.copy(contact_found.email)

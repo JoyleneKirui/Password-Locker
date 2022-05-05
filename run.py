@@ -1,21 +1,19 @@
-
-import string
 from random import *
-from user import User
-from user import Credentials
+from user import User, Credentials
+import string
 
+def save_user(User):
+    User.save_user()
 def create_user(username,userpassword):
     newuser= User(username,userpassword)
     return newuser
-def save_user(User):
-    User.save_user()
 def find_user(number):
     return User.find_by_number(number)
 def create_account(accountusername,accountname,accountpassword):
     newaccount= Credentials(accountusername,accountname,accountpassword)
     return newaccount 
-def save_account(User):
-    User.save_account()
+def save_account(Credentials):
+    Credentials.save_account()
 def delete_account(Credentials):
     Credentials.delete_account()
 def find_account(number):
@@ -24,6 +22,7 @@ def display_accounts():
     return Credentials.display_accounts()
 
 def main():
+    
         
             print("Welcome to Password Locker! Created By Joylene Kirui.")
             print("-----------------------------------------------------")
@@ -90,9 +89,6 @@ def logIn() :
                 else:
                     print("please put in a valid choice")  
                     logIn()
-                
-                print("\n")
-                print(f"Username:{accountusername} \nAccount Name: {accountname} \nPassword: {accountpassword}") 
             elif choose == "2":
                 if find_account(loginUsername):
                     print("Here is a list of your created accounts: ")
@@ -104,12 +100,10 @@ def logIn() :
                     logIn()    
                 
             elif choose == "3":
-                print("Confirm username")
-                accountusername = input()
-                print("Enter the account name of the Credentials you want to delete")
-                accountname = input()
-                print("Enter the password of the account Credentials you want to delete")
-                accountpassword = input()
+
+                accountusername = input("Confirm username\n")
+                accountname = input("Enter the account name of the Credentials you want to delete\n")
+                accountpassword = input("Enter the password of the account Credentials you want to delete\n")
                 
                 if find_account(accountpassword):    
                     Credentials.delete_account

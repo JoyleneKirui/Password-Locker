@@ -1,7 +1,7 @@
 # Password-Locker
 
 ## Description
-This is a Python application that  will help manage passwords and even generate new passwords.
+This is a Python application that  will help users manage their passwords and even generate new passwords.
 
 
 ## Behavior Driven Development
